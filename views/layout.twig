@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-FR">
    <head>
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>{% blocktitle %}{% endblock %}</title>
+      <title>
+         {% blocktitle %}
+         {% endblock %}
+      </title>
       <script defer src=""></script>
    </head>
    <body>
-      {% blockheader %} {% endblock %} {% blockbody %} {% endblock %} {% blockfooter %}{% endblock
-      %}
+      <header>
+         {% blockheader %} {% endblock %}
+      </header>
+
+      <main>
+         {% blockbody %} {% endblock %}
+      </main>
+
+      <footer>
+         {% blockfooter %}
+         {% endblock %}
+      </footer>
    </body>
 </html>
