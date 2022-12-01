@@ -1,7 +1,7 @@
 import * as express from "express";
 import ProjectController from "../controller/ProjectController";
 import { modelProject } from "../model/projectModel";
-import multer from "../middleware/multer-config";
+import { avatarMulter } from "../middleware/multer-config";
 import Auth from "../middleware/Auth";
 
 const projectController = new ProjectController(modelProject);
@@ -15,25 +15,25 @@ const projectRouter = (function (Router: () => express.Router) {
 
    router.route("/new").post(
       (req, res, next) => Auth.checkAuth(req, res, next),
-      multer,
+      avatarMulter,
       (req, res) => projectController.create(req, res)
    );
 
    router.route("/update/:id").put(
       (req, res, next) => Auth.checkAuth(req, res, next),
-      multer,
+      avatarMulter,
       (req, res) => projectController.update(req, res)
    );
 
    router.route("/update/addProjectImg/:id").put(
       (req, res, next) => Auth.checkAuth(req, res, next),
-      multer,
+      avatarMulter,
       (req, res) => projectController.addProjectImages(req, res)
    );
 
    router.route("/update/deleteProjectImg/:id").put(
       (req, res, next) => Auth.checkAuth(req, res, next),
-      multer,
+      avatarMulter,
       (req, res) => projectController.deleteProjectImages(req, res)
    );
 
